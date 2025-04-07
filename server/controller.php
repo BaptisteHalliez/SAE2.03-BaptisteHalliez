@@ -20,3 +20,5 @@
  */
 require("model.php");
 
+function updateController(){
+}

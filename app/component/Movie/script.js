@@ -3,7 +3,7 @@ let template = await templateFile.text();
 
 let Movie = {};
 
-Movie.format = function (titre_film) {
+Movie.format = function () {
   let html = template;
   return html;
 };
