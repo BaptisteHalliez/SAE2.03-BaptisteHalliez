@@ -9,6 +9,7 @@
 
   <body>
     <header id="header"></header>
+    <section id="movielist"></section>
 
     <section id="content"></section>
 
@@ -42,9 +43,11 @@
        * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
        * formaté par le composant NavBar.
        */
-      V.renderNavBar = function (hAbout) {
+      V.renderNavBar = function (hAbout, data) {
         let header = document.querySelector("#header");
+        let movielist = document.querySelector('#movielist');
         header.innerHTML = NavBar.format(hAbout);
+        movielist.innerHTML = Movie.formatMany(data);
       };
 
       C.start(); // Démarre l'application
