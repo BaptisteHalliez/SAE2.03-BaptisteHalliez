@@ -48,7 +48,7 @@
         let header = document.querySelector("#header");
         let movielist = document.querySelector('#movielist');
         header.innerHTML = NavBar.format(hAbout);
-        movielist.innerHTML = Movie.formatMany(data);
+        movielist.innerHTML = Movie.format(data);
       };
 
       C.start(); // Démarre l'application
