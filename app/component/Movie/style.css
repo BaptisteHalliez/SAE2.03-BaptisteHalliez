@@ -1,13 +1,17 @@
 .container{
-
+    padding: 1rem 3rem;
+    font-family: var(--ff-sans);
+    background-color: var(--color-bg);
 }
 
 .movie__dispo{
-
+    font-size: 1.5rem;
+    color: var(--color-fg);
 }
 
 .movie__list{
-
+    display: flex;
+    gap: 1.5rem;
 }
 
 .boite{
@@ -15,5 +19,6 @@
 }
 
 .titre__film{
-    
+    padding: 2rem;
+    color: var(--color-fg);   
 }
