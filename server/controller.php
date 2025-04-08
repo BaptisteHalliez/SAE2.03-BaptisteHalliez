@@ -21,4 +21,62 @@
 require("model.php");
 
 function updateController(){
+    $nom = $_REQUEST['nom du film'];
+    $year = $_REQUEST['année de sortie'];
+    $length = $_REQUEST['durée'];
+    $desc = $_REQUEST['description'];
+    $dire = $_REQUEST['réalisateur'];
+    $categorie = $_REQUEST['catégorie'];
+    $age = $_REQUEST['age minimum'];
+    $ok = updateMovie($nom, $year, $length, $desc, $dire, $categorie, $age);
+    if ($ok!=0){
+        return "Le film $nom réalisé par $dire est ajouté dans la catégorie $categorie";
+    }
+    else{
+        return false;
+    }
+}
+
+/** readControler
+ * 
+ * @return mixed 
+ */
+function readController(){
+    if ( isset($_REQUEST['categorie'])==false || empty($_REQUEST['categorie'])==true ){
+        return false;
+    }
+    if ( isset($_REQUEST['nom'])==false || empty($_REQUEST['nom'])==true ){
+        return false;
+    }
+    $categorie = $_REQUEST['categorie'];
+    $category = ['action', 'comédie', 'drame', 'science-fiction', 'animation', 'thriller', 'horreur', 'aventure', 'fantaisie', 'documentaire'];
+    if (in_array($categorie, $category)==false){
+        return false;
+    }
+}
+
+/** deleteController
+ *
+ * @return mixed Retourne un message de succès si le menu est supprimé avec succès,
+ *               ou false si une validation échoue ou si la suppression échoue.
+ */
+function deleteController(){
+    if ( isset($_REQUEST['categorie'])==false || empty($_REQUEST['categorie'])==true ){
+        return false;
+    }
+    if ( isset($_REQUEST['nom'])==false || empty($_REQUEST['nom'])==true ){
+        return false;
+    }
+    $categorie = $_REQUEST['categorie'];
+    $category = ['action', 'comédie', 'drame', 'science-fiction', 'animation', 'thriller', 'horreur', 'aventure', 'fantaisie', 'documentaire'];
+    if (in_array($categorie, $category)==false){
+        return false;
+    }
+    $ok = deleteMovie($nom, $categorie);
+    if (ok!=0){
+        return "Le film $nom de la catégorie $categorie a été supprimé";
+    }
+    else{
+        return false;
+    }
 }

@@ -25,11 +25,11 @@ define("DBPWD", "halliez1");
  * @param string $j Le jour pour lequel le menu est récupéré.
  * @return array Un tableau d'objets contenant l'entrée, le plat principal et le dessert pour le jour spécifié.
  */
-function getMovie($m){
+function getMovie(){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     // Requête SQL pour récupérer le menu avec des paramètres
-    $sql = "select name from Movie";
+    $sql = "select * from Movie";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
     // Exécute la requête SQL
@@ -37,4 +37,42 @@ function getMovie($m){
     // Récupère les résultats de la requête sous forme d'objets
     $res = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $res; // Retourne les résultats
+}
+
+/**
+ * Met à jour le menu pour un jour spécifique dans la base de données.
+ *
+ * @param string $n Le nom du film
+ * @param string $y L'année de sortie du film
+ * @param string $l La durée du film en minute
+ * @param string $d La description du film
+ * @param string $r Le réalisateur du film
+ * @param string $i L'affiche du film
+ * @param string $t Le lien vers le trailer du film
+ * @param string $a L'age minimum requis pour regarder le film
+ * @return int Le nombre de lignes affectées par la requête de mise à jour.
+ *
+ */
+function updateMovie($n, $y, $l, $d, $r, $i, $t, $a){
+    // Connexion à la base de données
+    $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
+    // Requête SQL de mise à jour du menu avec des paramètres
+    $sql = "REPLACE INTO Movie (name, year, length, description, director, image, trailer, min_age) 
+            VALUES (:name, :year, :length, :description, :director, :image, :trailer, :min_age)";
+    // Prépare la requête SQL
+    $stmt = $cnx->prepare($sql);
+    // Lie les paramètres aux valeurs
+    $stmt->bindParam(':length', $l);
+    $stmt->bindParam(':description', $d);
+    $stmt->bindParam(':director', $r);
+    $stmt->bindParam(':year', $y);
+    $stmt->bindParam(':name', $n);
+    $stmt->bindParam(':image', $i);
+    $stmt->bindParam(':trailer', $t);
+    $stmt->bindParam(':age', $a);
+    // Exécute la requête SQL
+    $stmt->execute();
+    // Récupère le nombre de lignes affectées par la requête
+    $res = $stmt->rowCount(); 
+    return $res; // Retourne le nombre de lignes affectées
 }
