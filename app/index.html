@@ -29,9 +29,15 @@
         );
       };
 
+      C.getMovie = async function(film){
+      let input = document.querySelector('#movielist');
+      let data = await DataMovie.request(film);
+      V.renderMovie(data);
+    }
+
       C.start = function () {
         V.renderNavBar("C.handlerAbout()");
-        V.renderMovie();
+        V.renderMovie("C.getMovie()");
       };
 
       // Vue (contient tout ce qui est relatif à l'affichage)
@@ -44,12 +50,15 @@
        * Elle sélectionne l'élément HTML avec l'ID "header" et y insère le contenu
        * formaté par le composant NavBar.
        */
-      V.renderNavBar = function (hAbout, data) {
+      V.renderNavBar = function (hAbout) {
         let header = document.querySelector("#header");
-        let movielist = document.querySelector('#movielist');
         header.innerHTML = NavBar.format(hAbout);
-        movielist.innerHTML = Movie.format(data);
       };
+
+      V.renderMovie = function (data){
+        let movielist = document.querySelector('#movielist');
+        movielist.innerHTML = Movie.format(data);
+      }
 
       C.start(); // Démarre l'application
     </script>

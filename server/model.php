@@ -32,6 +32,14 @@ function getMovie(){
     $sql = "select * from Movie";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);
+    $stmt->bindParam(':name', $n);
+    $stmt->bindParam(':year', $y);
+    $stmt->bindParam(':length', $l);
+    $stmt->bindParam(':description', $d);
+    $stmt->bindParam(':director', $r);
+    $stmt->bindParam(':image', $i);
+    $stmt->bindParam(':trailer', $t);
+    $stmt->bindParam(':age', $a);
     // Exécute la requête SQL
     $stmt->execute();
     // Récupère les résultats de la requête sous forme d'objets

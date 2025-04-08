@@ -21,13 +21,13 @@
 require("model.php");
 
 function updateController(){
-    $nom = $_REQUEST['nom du film'];
-    $year = $_REQUEST['année de sortie'];
-    $length = $_REQUEST['durée'];
+    $nom = $_REQUEST['name'];
+    $year = $_REQUEST['year'];
+    $length = $_REQUEST['length'];
     $desc = $_REQUEST['description'];
-    $dire = $_REQUEST['réalisateur'];
+    $dire = $_REQUEST['director'];
     $categorie = $_REQUEST['catégorie'];
-    $age = $_REQUEST['age minimum'];
+    $age = $_REQUEST['min_age'];
     $ok = updateMovie($nom, $year, $length, $desc, $dire, $categorie, $age);
     if ($ok!=0){
         return "Le film $nom réalisé par $dire est ajouté dans la catégorie $categorie";
@@ -45,7 +45,7 @@ function readController(){
     if ( isset($_REQUEST['categorie'])==false || empty($_REQUEST['categorie'])==true ){
         return false;
     }
-    if ( isset($_REQUEST['nom'])==false || empty($_REQUEST['nom'])==true ){
+    if ( isset($_REQUEST['film'])==false || empty($_REQUEST['film'])==true ){
         return false;
     }
     $categorie = $_REQUEST['categorie'];
@@ -53,6 +53,13 @@ function readController(){
     if (in_array($categorie, $category)==false){
         return false;
     }
+    $film = $_REQUEST['film'];
+    $films = ['Le Bon, la Brute et le Truand', 'Interstellar', 'La Liste de Schindler', 'Your Name'];
+    if (in_array($film, $films)==false){
+        return false;
+    }
+    $movie = getMovie($nom, $year, $length, $desc, $dire, $categorie, $age);
+    return $movie;
 }
 
 /** deleteController
@@ -64,12 +71,17 @@ function deleteController(){
     if ( isset($_REQUEST['categorie'])==false || empty($_REQUEST['categorie'])==true ){
         return false;
     }
-    if ( isset($_REQUEST['nom'])==false || empty($_REQUEST['nom'])==true ){
+    if ( isset($_REQUEST['film'])==false || empty($_REQUEST['film'])==true ){
         return false;
     }
     $categorie = $_REQUEST['categorie'];
     $category = ['action', 'comédie', 'drame', 'science-fiction', 'animation', 'thriller', 'horreur', 'aventure', 'fantaisie', 'documentaire'];
     if (in_array($categorie, $category)==false){
+        return false;
+    }
+    $film = $_REQUEST['film'];
+    $films = ['Le Bon, la Brute et le Truand', 'Interstellar', 'La Liste de Schindler', 'Your Name'];
+    if (in_array($film, $films)==false){
         return false;
     }
     $ok = deleteMovie($nom, $categorie);
