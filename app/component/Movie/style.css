@@ -6,7 +6,9 @@
 
 .movie__dispo{
     font-size: 1.5rem;
+    font-family: var(--ff-sans);
     color: var(--color-fg);
+    background-color: var(--color-bg);
 }
 
 .movie__list{

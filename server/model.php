@@ -25,7 +25,7 @@ define("DBPWD", "halliez1");
  * @param string $j Le jour pour lequel le menu est récupéré.
  * @return array Un tableau d'objets contenant l'entrée, le plat principal et le dessert pour le jour spécifié.
  */
-function getMovie(){
+function getMovie($n, $y, $l, $d, $r, $i, $t, $a){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
     // Requête SQL pour récupérer le menu avec des paramètres

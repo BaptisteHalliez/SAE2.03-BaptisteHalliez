@@ -26,11 +26,11 @@ function updateController(){
     $length = $_REQUEST['length'];
     $desc = $_REQUEST['description'];
     $dire = $_REQUEST['director'];
-    $categorie = $_REQUEST['catégorie'];
+    $cate = $_REQUEST['category'];
     $age = $_REQUEST['min_age'];
-    $ok = updateMovie($nom, $year, $length, $desc, $dire, $categorie, $age);
+    $ok = updateMovie($nom, $year, $length, $desc, $dire, $cate, $age);
     if ($ok!=0){
-        return "Le film $nom réalisé par $dire est ajouté dans la catégorie $categorie";
+        return "Le film $nom réalisé par $dire est ajouté dans la catégorie $cate";
     }
     else{
         return false;
@@ -42,13 +42,13 @@ function updateController(){
  * @return mixed 
  */
 function readController(){
-    if ( isset($_REQUEST['categorie'])==false || empty($_REQUEST['categorie'])==true ){
+    if ( isset($_REQUEST['category'])==false || empty($_REQUEST['category'])==true ){
         return false;
     }
     if ( isset($_REQUEST['film'])==false || empty($_REQUEST['film'])==true ){
         return false;
     }
-    $categorie = $_REQUEST['categorie'];
+    $categorie = $_REQUEST['category'];
     $category = ['action', 'comédie', 'drame', 'science-fiction', 'animation', 'thriller', 'horreur', 'aventure', 'fantaisie', 'documentaire'];
     if (in_array($categorie, $category)==false){
         return false;
@@ -58,7 +58,7 @@ function readController(){
     if (in_array($film, $films)==false){
         return false;
     }
-    $movie = getMovie($nom, $year, $length, $desc, $dire, $categorie, $age);
+    $movie = getMovie($nom, $year, $length, $desc, $dire, $cate, $age);
     return $movie;
 }
 
@@ -68,13 +68,13 @@ function readController(){
  *               ou false si une validation échoue ou si la suppression échoue.
  */
 function deleteController(){
-    if ( isset($_REQUEST['categorie'])==false || empty($_REQUEST['categorie'])==true ){
+    if ( isset($_REQUEST['category'])==false || empty($_REQUEST['category'])==true ){
         return false;
     }
     if ( isset($_REQUEST['film'])==false || empty($_REQUEST['film'])==true ){
         return false;
     }
-    $categorie = $_REQUEST['categorie'];
+    $categorie = $_REQUEST['category'];
     $category = ['action', 'comédie', 'drame', 'science-fiction', 'animation', 'thriller', 'horreur', 'aventure', 'fantaisie', 'documentaire'];
     if (in_array($categorie, $category)==false){
         return false;
@@ -84,9 +84,9 @@ function deleteController(){
     if (in_array($film, $films)==false){
         return false;
     }
-    $ok = deleteMovie($nom, $categorie);
+    $ok = deleteMovie($nom, $cate);
     if (ok!=0){
-        return "Le film $nom de la catégorie $categorie a été supprimé";
+        return "Le film $nom de la catégorie $cate a été supprimé";
     }
     else{
         return false;

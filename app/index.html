@@ -9,8 +9,9 @@
 
   <body>
     <header id="header"></header>
+    <header class="movie__dispo">Films disponibles</header>
     <section id="movielist"></section>
-
+    
     <section id="content"></section>
 
     <script type="module">
@@ -57,7 +58,7 @@
 
       V.renderMovie = function (data){
         let movielist = document.querySelector('#movielist');
-        movielist.innerHTML = Movie.format(data);
+        movielist.innerHTML = Movie.formatMany(data);
       }
 
       C.start(); // Démarre l'application
