@@ -30,15 +30,17 @@
         );
       };
 
-      C.getMovie = async function(film){
-      let input = document.querySelector('#movielist');
-      let data = await DataMovie.request(film);
+      C.getMovie = async function(){
+      let data = await DataMovie.request();
+      if (data.length == 0){
+        data = "Aucun film disponible pour le moment.";
+      }
       V.renderMovie(data);
     }
 
       C.start = function () {
         V.renderNavBar("C.handlerAbout()");
-        V.renderMovie("C.getMovie()");
+        C.getMovie();
       };
 
       // Vue (contient tout ce qui est relatif à l'affichage)

@@ -1,10 +1,14 @@
 .container{
     padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-family: var(--ff-sans);
     background-color: var(--color-bg);
 }
 
 .movie__dispo{
+    padding-left: 2rem;
     font-size: 1.5rem;
     font-family: var(--ff-sans);
     color: var(--color-fg);
@@ -13,10 +17,17 @@
 
 .movie__list{
     display: flex;
-    gap: 1.5rem;
+    flex-direction: row;
 }
 
 .titre__film{
     padding: 2rem;
     color: var(--color-fg);   
+}
+
+.image{
+    width: 280px;
+    height: 420px;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px black;
 }

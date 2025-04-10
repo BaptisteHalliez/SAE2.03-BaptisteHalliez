@@ -42,23 +42,7 @@ function updateController(){
  * @return mixed 
  */
 function readController(){
-    if ( isset($_REQUEST['category'])==false || empty($_REQUEST['category'])==true ){
-        return false;
-    }
-    if ( isset($_REQUEST['film'])==false || empty($_REQUEST['film'])==true ){
-        return false;
-    }
-    $categorie = $_REQUEST['category'];
-    $category = ['action', 'comédie', 'drame', 'science-fiction', 'animation', 'thriller', 'horreur', 'aventure', 'fantaisie', 'documentaire'];
-    if (in_array($categorie, $category)==false){
-        return false;
-    }
-    $film = $_REQUEST['film'];
-    $films = ['Le Bon, la Brute et le Truand', 'Interstellar', 'La Liste de Schindler', 'Your Name'];
-    if (in_array($film, $films)==false){
-        return false;
-    }
-    $movie = getMovie($nom, $year, $length, $desc, $dire, $cate, $age);
+    $movie = getMovie();
     return $movie;
 }
 
