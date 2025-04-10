@@ -1,10 +1,6 @@
 .container{
-    padding: 1rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width:20rem;
     font-family: var(--ff-sans);
-    background-color: var(--color-bg);
 }
 
 .movie__dispo{
@@ -16,18 +12,20 @@
 }
 
 .movie__list{
+    height: 100%;
+    padding-top: 1.5rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .titre__film{
-    padding: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
     color: var(--color-fg);   
 }
 
 .image{
-    width: 280px;
-    height: 420px;
     border-radius: 1rem;
     box-shadow: 0px 0px 10px black;
 }
+
