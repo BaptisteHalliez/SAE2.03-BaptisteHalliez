@@ -6,10 +6,6 @@ let DataMovie = {};
 
 /**
  *
- * @param {string} day
- * @param {string} week
- * @returns The response from the server.
- *
  */
 DataMovie.request = async function () {
   // fetch permet d'envoyer une requête HTTP à l'URL spécifiée.
@@ -32,3 +28,5 @@ DataMovie.add = async function (fdata) {
     let data = await answer.json();
     return data;
 }
+
+export {DataMovie};

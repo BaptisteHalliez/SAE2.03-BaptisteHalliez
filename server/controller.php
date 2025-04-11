@@ -20,15 +20,15 @@
  */
 require("model.php");
 
-function updateController(){
+function addController(){
     $nom = $_REQUEST['name'];
     $year = $_REQUEST['year'];
     $length = $_REQUEST['length'];
     $desc = $_REQUEST['description'];
     $dire = $_REQUEST['director'];
-    $cate = $_REQUEST['category'];
+    $cate = $_REQUEST['id_category'];
     $age = $_REQUEST['min_age'];
-    $ok = updateMovie($nom, $year, $length, $desc, $dire, $cate, $age);
+    $ok = addMovie($nom, $year, $length, $desc, $dire, $cate, $age);
     if ($ok!=0){
         return "Le film $nom réalisé par $dire est ajouté dans la catégorie $cate";
     }
@@ -44,35 +44,4 @@ function updateController(){
 function readController(){
     $movie = getMovie();
     return $movie;
-}
-
-/** deleteController
- *
- * @return mixed Retourne un message de succès si le menu est supprimé avec succès,
- *               ou false si une validation échoue ou si la suppression échoue.
- */
-function deleteController(){
-    if ( isset($_REQUEST['category'])==false || empty($_REQUEST['category'])==true ){
-        return false;
-    }
-    if ( isset($_REQUEST['film'])==false || empty($_REQUEST['film'])==true ){
-        return false;
-    }
-    $categorie = $_REQUEST['category'];
-    $category = ['action', 'comédie', 'drame', 'science-fiction', 'animation', 'thriller', 'horreur', 'aventure', 'fantaisie', 'documentaire'];
-    if (in_array($categorie, $category)==false){
-        return false;
-    }
-    $film = $_REQUEST['film'];
-    $films = ['Le Bon, la Brute et le Truand', 'Interstellar', 'La Liste de Schindler', 'Your Name'];
-    if (in_array($film, $films)==false){
-        return false;
-    }
-    $ok = deleteMovie($nom, $cate);
-    if (ok!=0){
-        return "Le film $nom de la catégorie $cate a été supprimé";
-    }
-    else{
-        return false;
-    }
 }

@@ -15,4 +15,5 @@
   --color-fg: var(--color-white);
   --color-bg: var(--color-gray-dark);
   --color-accent: var(--color-green);
+  --color-btn: var(--color-gray-light);
 }
