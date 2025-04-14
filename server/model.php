@@ -55,7 +55,7 @@ function addMovie($n, $y, $l, $d, $r, $c, $i, $t, $a){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
     // Requête SQL de mise à jour du menu avec des paramètres
-    $sql = "REPLACE INTO Movie (name, year, length, description, director, id_category, image, trailer, min_age) 
+    $sql = "INSERT INTO Movie (name, year, length, description, director, id_category, image, trailer, min_age) 
             VALUES (:name, :year, :length, :description, :director, :id_category, :image, :trailer, :min_age)";
     // Prépare la requête SQL
     $stmt = $cnx->prepare($sql);

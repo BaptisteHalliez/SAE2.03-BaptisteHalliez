@@ -20,14 +20,13 @@
       C.handlerAddMovie = async function(){
         let form = document.querySelector('.addMovie__form');
         let fd = new FormData(form);
-        let res = await DataMovie.add(fd);
+        let res = await DataMovie.addMovie(fd);
         V.renderLog(res);
       }
 
       C.start = function () {
         V.renderLog("Démarrage de l'application");
-        V.renderMovieForm(C.handlerAddMovie());
-        document.querySelector('.addMovie__form input[name="todo"]').addEventListener('click', C.handlerAddMovie);
+        V.renderMovieForm("C.handlerAddMovie()");
       };
 
       window.V = {};

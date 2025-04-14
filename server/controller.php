@@ -27,13 +27,15 @@ function addController(){
     $desc = $_REQUEST['description'];
     $dire = $_REQUEST['director'];
     $cate = $_REQUEST['id_category'];
+    $image = $_REQUEST['image'];
+    $trailer = $_REQUEST['trailer'];
     $age = $_REQUEST['min_age'];
-    $ok = addMovie($nom, $year, $length, $desc, $dire, $cate, $age);
+    $ok = addMovie($nom, $year, $length, $desc, $dire, $cate, $image, $trailer, $age);
     if ($ok!=0){
         return "Le film $nom réalisé par $dire est ajouté dans la catégorie $cate";
     }
-    else{
-        return false;
+    else {
+        return "Veuillez remplir le(s) champ(s) vide(s)";
     }
 }
 
