@@ -78,6 +78,7 @@ if ( isset($_REQUEST['todo']) ){
   if ($data===false){
     echo json_encode('[error] Controller returns false');
     http_response_code(500); // 500 == "Internal error"
+    echo "Veuillez remplir tous les champs";
     exit();
   }
 

@@ -11,7 +11,7 @@
  *  nécessaires sur la base de données.
  *  
  *  Si la fonction échoue à traiter la requête, elle retourne false (mauvais paramètres, erreur de connexion à la BDD, etc.)
- *  Sinon elle retourne le résultat de l'opération (des données ou un message) à includre dans la réponse HTTP.
+ *  Sinon elle retourne le résultat de l'opération (des données ou un message) à inclure dans la réponse HTTP.
  */
 
 /** Inclusion du fichier model.php
@@ -35,7 +35,7 @@ function addController(){
         return "Le film $nom réalisé par $dire est ajouté dans la catégorie $cate";
     }
     else {
-        return "Veuillez remplir le(s) champ(s) vide(s)";
+        return false;
     }
 }
 
