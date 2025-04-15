@@ -1,6 +1,4 @@
-
-// URL où se trouve le répertoire "server" sur mmi.unilim.fr
-let HOST_URL = "https://mmi.unilim.fr/~halliez1/SAE2.03-BaptisteHalliez/";
+let HOST_URL = "..";
 
 let DataMovie = {};
 

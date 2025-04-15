@@ -1,2 +1,2 @@
-Pour itération 2 -
-(dire et montrer avec capture d'écran ce qu'on a modifié)
+Itération 1 et 2 -
+Pas de modifications
