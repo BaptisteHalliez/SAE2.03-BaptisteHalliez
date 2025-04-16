@@ -8,12 +8,15 @@
   --color-gray: hsl(0, 0%, 50%);
   --color-gray-dark: hsl(0, 0%, 20%);
   --color-green: hsl(120, 100%, 37%);
+  --ff-sans: "Roboto", sans-serif;
 
-  --ff-sans: "DM sans", sans-serif;
+  /* Site sfanytime */
+  --color-dark: rgba(12, 12, 12, 0.95);
+  --color-orange: rgba(216, 123, 0, 1);
 
   /* Sementic Tokens */
   --color-fg: var(--color-white);
-  --color-bg: var(--color-gray-dark);
+  --color-bg: var(--color-dark);
   --color-accent: var(--color-green);
-  --color-btn: var(--color-gray-light);
+  --color-btn: var(--color-orange);
 }

@@ -3,10 +3,13 @@ let template = await templateFile.text();
 
 let NavBar = {};
 
-NavBar.format = function (hAbout, hFilms) {
+NavBar.format = function (hFilms, hNouveau, hEnfants, hAVenir, hCarte) {
   let html = template;
-  html = html.replace("{{hAbout}}", hAbout);
   html = html.replace("{{hFilms}}", hFilms);
+  html = html.replace("{{hNouveau}}", hNouveau);
+  html = html.replace("{{hEnfants}}", hEnfants);
+  html = html.replace("{{hAVenir}}", hAVenir);
+  html = html.replace("{{hCarte}}", hCarte);
   return html;
 };
 

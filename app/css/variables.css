@@ -7,9 +7,15 @@
   --color-gray-light: hsl(0, 0%, 80%);
   --color-gray: hsl(0, 0%, 50%);
   --color-gray-dark: hsl(0, 0%, 20%);
-  --ff-sans: "DM sans", sans-serif;
+  --ff-sans: "Roboto", sans-serif;
+
+  /* Site sfanytime */
+  --color-dark: rgba(12, 12, 12, 0.95);
+  --color-orange: rgba(216, 123, 0, 1);
 
   /* Sementic Tokens */
   --color-fg: var(--color-white);
   --color-bg: var(--color-gray-dark);
+  --clr-bg: var(--color-dark);
+  --clr-btn: var(--color-orange);
 }

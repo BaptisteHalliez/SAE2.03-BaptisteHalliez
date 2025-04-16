@@ -1,26 +1,38 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
   color: var(--color-fg);
-  background-color: var(--color-bg);
-
+  
   .navbar__list {
     display: flex;
-    gap: 1.5rem;
+    justify-content: center;
   }
-
+  
   .navbar__item {
-    --_offset: 0.2rem;
+    --_offset: 1rem;
     padding: 0.5rem 1rem;
-    text-decoration: underline;
-    text-decoration-thickness: 0.1rem;
-    text-underline-offset: var(--_offset);
+    gap: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
     cursor: pointer;
     transition: text-underline-offset 0.2s ease-in-out;
     &:hover {
-      --_offset: 0.5rem;
+      --_offset: 1rem;
+      text-decoration: underline;
+      text-decoration-thickness: 0.2rem;
+      text-decoration-color: var(--clr-btn);
+      text-underline-offset: var(--_offset);
     }
   }
+}
+
+.logo{
+  padding-right: 2rem;
+}
+
+.icone{
+  width: 1.5rem;
+  fill: var(--color-fg);
 }

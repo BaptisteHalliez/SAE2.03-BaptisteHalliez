@@ -1,4 +1,6 @@
 .log {
+  margin-top: 6rem;
+  margin-left: 2rem;
   display: flex;
   align-items: flex-end;
   width: 30rem;
